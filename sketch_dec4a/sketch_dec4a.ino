@@ -18,4 +18,15 @@ void loop() {
   return distance;
 }
 
+void controlLEDs(int distance) {
+  if (distance < 30) { 
+       digitalWrite(redLED, LOW);   
+    digitalWrite(greenLED, HIGH);
+   
+  } else { 
+  
+     digitalWrite(redLED, HIGH);  
+    digitalWrite(greenLED, LOW); 
+  }
+
 }
