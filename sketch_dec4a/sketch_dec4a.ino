@@ -22,7 +22,34 @@ void setup() {
 }
 
 void loop() {
-  int calculateDistance() { 
+  for (int i = 15; i <= 165; i++) {  
+    myServo.write(i);
+    delay(30);
+    distance = calculateDistance(); 
+    
+    Serial.print(i); 
+    Serial.print(","); 
+    Serial.print(distance); 
+    Serial.print("."); 
+    
+    controlLEDs(distance); 
+  }
+
+
+  for (int i = 165; i > 15; i--) {  
+    myServo.write(i);
+    delay(30);
+    distance = calculateDistance();
+    Serial.print(i);
+    Serial.print(",");
+    Serial.print(distance);
+    Serial.print(".");
+    
+    controlLEDs(distance); 
+  }
+}
+
+int calculateDistance() { 
   digitalWrite(trigPin, LOW); 
   delayMicroseconds(2);
   
@@ -46,5 +73,4 @@ void controlLEDs(int distance) {
      digitalWrite(redLED, HIGH);  
     digitalWrite(greenLED, LOW); 
   }
-
 }
