@@ -1,6 +1,24 @@
-void setup() {
-  // put your setup code here, to run once:
+#include <Servo.h>
 
+const int trigPin = 10;
+const int echoPin = 11;
+
+const int redLED = 8;  
+const int greenLED = 9; 
+
+long duration;
+int distance;
+
+Servo myServo;
+
+void setup() {
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(redLED, OUTPUT);  
+  pinMode(greenLED, OUTPUT);
+
+  Serial.begin(9600);
+  myServo.attach(12); 
 }
 
 void loop() {
